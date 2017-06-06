@@ -17,6 +17,14 @@ void Graphics::Draw(CustomVertex_01* _c_vertex) {
 	//dispositivo->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, cantidadVertices / 2);
 	//dibujo escena
 }
+
+void Graphics::DrawTexture(IDirect3DSurface9* surface_sprite, CustomVertexSprite*_customVertexSprite) {
+	dispositivo->GetBackBuffer(0, 0, D3DBACKBUFFER_TYPE_MONO, &backbufer);
+//	OutputDebugString(TEXT("DRAW de sprite GRAPHICS"));
+	dispositivo->StretchRect(surface_sprite,NULL,backbufer,&_customVertexSprite->cs.destino,D3DTEXF_NONE);
+		
+
+}
 void Graphics::Begin() {
 	dispositivo->BeginScene();
 }

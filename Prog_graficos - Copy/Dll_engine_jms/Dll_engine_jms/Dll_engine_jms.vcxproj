@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CustomVertexSprite.h" />
     <ClInclude Include="CustomVertex_01.h" />
     <ClInclude Include="EngineApi.h" />
     <ClInclude Include="Entity.h" />
@@ -29,10 +30,13 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Ventana.h" />
     <ClInclude Include="VertexBufferManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CustomVertexSprite.cpp" />
     <ClCompile Include="CustomVertex_01.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Entity2d.cpp" />
@@ -40,22 +44,9 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Ventana.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\..\..\..\image\programacion de graficos\resources\sprite3.png">
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
-    </Image>
-    <Image Include="..\..\..\..\..\..\image\programacion de graficos\resources\trooper.bmp" />
-    <Image Include="..\..\..\..\..\..\image\programacion de graficos\resources\trooper.jpg">
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
-    </Image>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{09B8F99D-8C41-44E8-8C58-06A1BEBE6374}</ProjectGuid>

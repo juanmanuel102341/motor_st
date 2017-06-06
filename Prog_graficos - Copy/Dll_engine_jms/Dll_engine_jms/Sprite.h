@@ -5,6 +5,9 @@
 #include"EngineApi.h"
 #include"Entity2d.h"
 #include<cstring>
+#include"CustomVertexSprite.h"
+#include"TextureManager.h"
+
 class ENGINE_API Sprite:public Entity2d
 {
 
@@ -14,15 +17,18 @@ public:
 	IDirect3DSurface9* surface_sprite;
 	IDirect3DTexture9* texture;
 	Sprites sprite;
-	
+	CustomVertexSprite*csprite;
+	TextureManager* tm;
 	Sprite();
-	IDirect3DSurface9* CreateSurface(LPCWSTR ruta,UINT width,UINT height);
+void Draw();
 //	bool SetSpriteValues();
 	//~Sprite();
-	void CreacionTexture(LPCWSTR r, UINT width,UINT height);
+	//void CreacionTexture(LPCWSTR r, UINT width,UINT height);
 	void GetDevice(LPDIRECT3DDEVICE9 _dev);
-	wstring ChangeString(const std::string& s);
-	virtual void Draw();
+	//wstring ChangeString(const std::string& s);
+	void Initialize(Graphics* n_graphics);
+	//void Initialize(Graphics* n_graphics, LPDIRECT3DDEVICE9 dev, LPCWSTR ruta, UINT _width, UINT _height);
+	void LoadTexture(LPCWSTR ruta, UINT _width, UINT _height);
 private:
 	
 	LPDIRECT3DDEVICE9 _dispositivo; 

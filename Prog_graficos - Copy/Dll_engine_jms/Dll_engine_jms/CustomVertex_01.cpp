@@ -2,7 +2,7 @@
 
 
 CustomVertex_01::CustomVertex_01() {
-	cv2[0].x = 0.0f;
+cv2[0].x = 0.0f;
 	cv2[0].y = 0.0f;
 	cv2[0].z = 0.0f;
 	cv[0].color = D3DCOLOR_XRGB(0, 0, 255);
@@ -16,5 +16,5 @@ CustomVertex_01::CustomVertex_01() {
 	cv2[2].y = 100.0f;
 	cv2[2].z = 0.0f;
 	cv[2].color = D3DCOLOR_XRGB(0, 0, 255);
-
+	
 }

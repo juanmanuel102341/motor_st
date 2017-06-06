@@ -18,6 +18,8 @@ bool Game::StartUp(HINSTANCE hInstance)
 		if (!nuevoGraphics->Initialize(nuevaVentana)) {
 		return false;
 		}
+		tm = new TextureManager(nuevoGraphics);
+		
 		
 		return OnInitialize();
 	//mensaje error

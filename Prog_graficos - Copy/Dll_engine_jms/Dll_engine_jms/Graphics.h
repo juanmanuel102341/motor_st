@@ -9,6 +9,7 @@
 #include"Header_1.h"
 
 #include"CustomVertex_01.h"
+#include"CustomVertexSprite.h"
 //#include"Shape.h"
 //#include"Sprite.h"
 #pragma comment(lib,"d3d9.lib")
@@ -32,7 +33,7 @@ struct Point {
  class ENGINE_API Graphics
 {
 public:
-	
+		LPDIRECT3DDEVICE9 dispositivo;//device
 	//CustomVertex coleccionVertices_triangles_g[20];
 	Graphics();
 	int n[3];
@@ -40,6 +41,7 @@ public:
 		bool Shutdown();
 		void Clear();
 		void Draw(CustomVertex_01* c_vertex);
+		void DrawTexture(IDirect3DSurface9* surface_sprite,CustomVertexSprite*_customVertexSorite);//sobrecarga metodo
 		void Begin();
 		void End();
 		void Present();//manda a la pantalla lo q dibujas
@@ -47,38 +49,30 @@ public:
 		bool SetupEscene();
 		
 		//	~Graphics();
-		
+	
 	
 private:
-	//CustomVertex c[3];
+	
 	LPDIRECT3D9 pD3D;//objeto
-	LPDIRECT3DDEVICE9 dispositivo;//device
+
 	IDirect3DSurface9*backbufer;
 	Ventana* nuevaVentana;
-	
 	IDirect3DVertexBuffer9*buffer_vertex_triangle;
 	IDirect3DVertexBuffer9*buffer_vertex_square;
-	
-
-	bool InitDirect3D(void);
-
-
-	void CleanUp(void);
-
-	
-//	CustomVertex coleccionVertices[3];
-	HRESULT SetupVertexBuffer();
-	//void DrawVertexBuffer();
-	
-	//CustomVertex coleccionVertices_Squares_g[20];
-	
+		
 	int startIndex_triangle = 0;
 	int startIndex_square = 0;
+	
 	D3DXMATRIX MatrizTraslacion(float x, float y);
 	D3DXMATRIX MatrizRotacion(float angle);
 	D3DXMATRIX MatrizScala(float x, float y);
+	HRESULT SetupVertexBuffer();
 	void SetPrimitivas();
 	
+	bool InitDirect3D(void);
+
+	void CleanUp(void);
+
  
  };
 

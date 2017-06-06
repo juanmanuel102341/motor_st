@@ -15,7 +15,7 @@ public:
 	 Shape();
 	 Primitivas p;
 	// CustomVertex coleccionVertices_triangles[3];
-	 virtual void Initialize(Graphics* n_graphics);
+	  void Initialize(Graphics* n_graphics);
 //	~ Shape();
 	// void CreateTriangle(Point point_1, Point point_2, Point point_3);
 	 virtual void Draw();

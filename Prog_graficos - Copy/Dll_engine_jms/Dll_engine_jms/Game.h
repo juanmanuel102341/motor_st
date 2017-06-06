@@ -5,6 +5,7 @@
 #include"Ventana.h"
 #include"Entity2d.h"
 #include<iostream>
+#include"TextureManager.h"
 using namespace std;
 
 
@@ -18,7 +19,7 @@ public:
 	bool StartUp(HINSTANCE hInstance);
 	
 	
-
+	TextureManager* tm;
 	void Update();
 	bool ShutDown();
 	Game();

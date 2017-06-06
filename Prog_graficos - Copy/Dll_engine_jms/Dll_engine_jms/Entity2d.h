@@ -34,12 +34,14 @@ public:
 	Graphics* new_graphics;
 //	Point point;
 	
-	
+	virtual void Initialize(Graphics* n_graphics);
+	virtual void Initialize(Graphics* n_graphics, LPDIRECT3DDEVICE9 dev, LPCWSTR ruta, UINT _width, UINT _height);
 	Entity2d();
 	virtual void Draw();
 
 	void Update();
-	virtual void Initialize(Graphics* n_graphics);
+	
+	//	virtual void Initialize(Graphics* n_graphics);
 	//virtual void CreateTriangle(Point point_1, Point point_2, Point point_3);
 	//virtual void TakeVertices(Point point_1, Point point_2, Point point_3);
 	//virtual void CreateSquare(Point points[4]);
