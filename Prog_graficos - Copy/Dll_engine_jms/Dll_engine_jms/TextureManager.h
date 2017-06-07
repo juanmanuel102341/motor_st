@@ -11,11 +11,15 @@ using namespace std;
 class ENGINE_API TextureManager
 {
 public:
+	Texture* aux;
 	Graphics* graphics;
 	list<Texture*>listaTexture;
 	TextureManager( Graphics* g);
 //	~TextureManager();
 	void LoadedTexture(LPCWSTR ruta, UINT _width, UINT _height);
+	void DrawTexture();
+
+
 private:
 
 };

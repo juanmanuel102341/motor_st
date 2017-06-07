@@ -7,23 +7,23 @@ void Sprite::GetDevice(LPDIRECT3DDEVICE9 _dev) {
 }
 
 void Sprite::Draw() {
+	tm->DrawTexture();
 
 	
-	new_graphics->DrawTexture(surface_sprite,csprite);
+
 }
 
 
 void Sprite::LoadTexture(LPCWSTR ruta, UINT _width, UINT _height) {
+	tm->LoadedTexture(ruta, _width, _height);
 
 }
 
-void Sprite::Initialize(Graphics* g) {
-	new_graphics = g;
+void Sprite::Initialize(TextureManager* _tm) {
 
+	tm = _tm;
 }
-void Sprite::LoadTexture(LPCWSTR ruta, UINT _width, UINT _height) {
-	
-}
+
 /*
 void Sprite::Initialize(Graphics* g, LPDIRECT3DDEVICE9 dev, LPCWSTR ruta, UINT _width, UINT _height) {
 	OutputDebugString(TEXT("GGRAFICS Sprite"));

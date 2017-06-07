@@ -18,7 +18,7 @@ void Graphics::Draw(CustomVertex_01* _c_vertex) {
 	//dibujo escena
 }
 
-void Graphics::DrawTexture(IDirect3DSurface9* surface_sprite, CustomVertexSprite*_customVertexSprite) {
+void Graphics::DrawTexture( CustomVertexSprite*_customVertexSprite) {
 	dispositivo->GetBackBuffer(0, 0, D3DBACKBUFFER_TYPE_MONO, &backbufer);
 //	OutputDebugString(TEXT("DRAW de sprite GRAPHICS"));
 	dispositivo->StretchRect(surface_sprite,NULL,backbufer,&_customVertexSprite->cs.destino,D3DTEXF_NONE);
@@ -94,6 +94,29 @@ bool Graphics::Initialize(Ventana* _ventana) {
 	return true;
 	
 		
+}
+void Graphics::LoadTexture(LPCWSTR ruta, UINT _width, UINT _height) {
+	
+	HRESULT hr = NULL;
+	hr = dispositivo->CreateOffscreenPlainSurface(_width, _height, D3DFMT_X8R8G8B8, D3DPOOL_DEFAULT, &surface_sprite, NULL);
+
+	if (FAILED(hr)) {
+	OutputDebugString(TEXT("surface no cargada"));
+	//return NULL;
+	}
+	OutputDebugString(TEXT("surface cargada"));
+
+	hr = NULL;
+	hr = D3DXLoadSurfaceFromFile(surface_sprite, NULL, NULL, ruta, NULL, D3DX_DEFAULT, 0, NULL);
+	if (FAILED(hr)) {
+	//MessageBox(NULL,ChangeString("lalllaa").c_str(), NULL, NULL);
+	OutputDebugString(TEXT(" imagen no cargada"));
+	//	return NULL;
+	}
+	
+	OutputDebugString(TEXT("imagen cargada"));
+	//csprite = new CustomVertexSprite(_width,_height);
+	
 }
 
 HRESULT Graphics::SetupVertexBuffer() {

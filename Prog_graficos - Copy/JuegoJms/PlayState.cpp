@@ -7,7 +7,9 @@ bool PlayState::OnInitialize() {
 	main_entity2d = new Shape;
 	main_entity2d->Initialize(nuevoGraphics);
 	sprite = new Sprite;
-	tm->LoadedTexture()
+	sprite->Initialize( tm);
+	sprite->LoadTexture(L"trooper.jpg", 299, 310);
+
 		
 
 //	sprite->Initialize(nuevoGraphics,nuevoGraphics->dispositivo,L"sprite3.png",59,57);

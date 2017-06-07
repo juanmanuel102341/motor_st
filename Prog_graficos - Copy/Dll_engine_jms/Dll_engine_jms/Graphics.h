@@ -34,6 +34,7 @@ struct Point {
 {
 public:
 		LPDIRECT3DDEVICE9 dispositivo;//device
+		IDirect3DSurface9* surface_sprite;
 	//CustomVertex coleccionVertices_triangles_g[20];
 	Graphics();
 	int n[3];
@@ -41,11 +42,11 @@ public:
 		bool Shutdown();
 		void Clear();
 		void Draw(CustomVertex_01* c_vertex);
-		void DrawTexture(IDirect3DSurface9* surface_sprite,CustomVertexSprite*_customVertexSorite);//sobrecarga metodo
+		void DrawTexture(CustomVertexSprite*_customVertexSorite);//sobrecarga metodo
 		void Begin();
 		void End();
 		void Present();//manda a la pantalla lo q dibujas
-		
+		void LoadTexture(LPCWSTR ruta, UINT _width, UINT _height);
 		bool SetupEscene();
 		
 		//	~Graphics();

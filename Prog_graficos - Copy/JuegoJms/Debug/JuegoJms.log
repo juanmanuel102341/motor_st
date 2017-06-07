@@ -1,1 +1,12 @@
-﻿  JuegoJms.vcxproj -> C:\Users\Juan Manuel\Desktop\mt_pg_desk\motor_st\Prog_graficos - Copy\Dll_engine_jms\Debug\JuegoJms.exe
+﻿  PlayState.cpp
+c:\users\juan manuel\desktop\mt_pg_desk\motor_st\prog_graficos - copy\dll_engine_jms\dll_engine_jms\ventana.h(16): warning C4251: 'Ventana::className': class 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>' needs to have dll-interface to be used by clients of class 'Ventana'
+c:\users\juan manuel\desktop\mt_pg_desk\motor_st\prog_graficos - copy\dll_engine_jms\dll_engine_jms\entity.h(24): warning C4251: 'Entity::name': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Entity'
+c:\users\juan manuel\desktop\mt_pg_desk\motor_st\prog_graficos - copy\dll_engine_jms\dll_engine_jms\texturemanager.h(16): warning C4251: 'TextureManager::listaTexture': class 'std::list<Texture *,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'TextureManager'
+          with
+          [
+              _Ty=Texture *
+          ]
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  JuegoJms.vcxproj -> C:\Users\Juan Manuel\Desktop\mt_pg_desk\motor_st\Prog_graficos - Copy\Dll_engine_jms\Debug\JuegoJms.exe
