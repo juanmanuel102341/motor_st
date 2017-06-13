@@ -45,9 +45,6 @@
     <ClInclude Include="VertexBufferManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CustomVertex_01.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Header_1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -58,6 +55,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -80,9 +80,6 @@
     <ClCompile Include="Shape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CustomVertex_01.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -93,6 +90,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

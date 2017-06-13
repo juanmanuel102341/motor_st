@@ -26,6 +26,7 @@ bool PlayState::OnShutDown() {
 void PlayState::OnDraw() {
 	//OutputDebugString(TEXT("DRAW PLAYSTATE"));
 	main_entity2d->Draw();
+	main_entity2d->SetPosition(200, 200);
 	sprite->Draw();
 }
 PlayState::PlayState() {

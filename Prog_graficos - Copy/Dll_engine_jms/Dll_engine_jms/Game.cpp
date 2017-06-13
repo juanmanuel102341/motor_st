@@ -13,7 +13,7 @@ bool Game::StartUp(HINSTANCE hInstance)
 	else {
 		
 		nuevoGraphics = new Graphics;
-		
+		timeManager = new TimeManager;
 
 		if (!nuevoGraphics->Initialize(nuevaVentana)) {
 		return false;
@@ -30,6 +30,7 @@ void Game::Update() {
 	static bool	done = false;	// Si debo interrumpir el loop
 	while (!done)
 	{
+		//timeManager->StartCounter();
 		if (PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE)) {
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
@@ -37,9 +38,9 @@ void Game::Update() {
 			if (msg.message == WM_QUIT)
 				done = true;			// ALT-F4
 		}
-		//nuevoGraphics->Render();
+
 		nuevoGraphics->Clear();
-			nuevoGraphics->SetupEscene();
+		//nuevoGraphics->SetupEscene();
 		nuevoGraphics->Begin();
 
 		OnDraw();//PLAYSTATE //SHAPE

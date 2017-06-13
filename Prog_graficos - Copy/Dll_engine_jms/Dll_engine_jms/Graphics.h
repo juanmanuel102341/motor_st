@@ -8,7 +8,7 @@
 #include<d3dx9.h>
 #include"Header_1.h"
 
-#include"CustomVertex_01.h"
+
 #include"CustomVertexSprite.h"
 //#include"Shape.h"
 //#include"Sprite.h"
@@ -18,7 +18,8 @@
 
 #include<string>
 static const int VB_SIZE = 50;
-
+#include"VertexBufferManager.h"
+#define D3DFVF_CUSTOMVERTEX (D3DFVF_XYZ|D3DFVF_DIFFUSE)
 enum Primitivas {
 	
 	D3DPT_POINTLIST_jms, D3DPT_LINELIST_jms, D3DPT_LINESTRIP_jms, D3DPT_TRIANGLELIST_jms, D3DPT_TRIANGLESTRIP_jms
@@ -30,25 +31,35 @@ struct Point {
 
 };
 
+struct Custom_vertex {
+	float x, y, z;
+	DWORD color;
+
+};
  class ENGINE_API Graphics
 {
 public:
 		LPDIRECT3DDEVICE9 dispositivo;//device
 		IDirect3DSurface9* surface_sprite;
+		VertexBufferManager<Custom_vertex, D3DFVF_CUSTOMVERTEX>* vertexManager;
 	//CustomVertex coleccionVertices_triangles_g[20];
 	Graphics();
 	int n[3];
 		bool Initialize(Ventana* _objVentana);
 		bool Shutdown();
 		void Clear();
-		void Draw(CustomVertex_01* c_vertex);
+		void Draw(Custom_vertex* c_vertex);
 		void DrawTexture(CustomVertexSprite*_customVertexSorite);//sobrecarga metodo
 		void Begin();
 		void End();
 		void Present();//manda a la pantalla lo q dibujas
 		void LoadTexture(LPCWSTR ruta, UINT _width, UINT _height);
 		bool SetupEscene();
-		
+		D3DXMATRIX LoadIdentity();
+		void SetPosition(float x, float y);
+		void SetRotation(float angle);
+	
+		//void SetScale();
 		//	~Graphics();
 	
 	
@@ -60,7 +71,8 @@ private:
 	Ventana* nuevaVentana;
 	IDirect3DVertexBuffer9*buffer_vertex_triangle;
 	IDirect3DVertexBuffer9*buffer_vertex_square;
-		
+	
+	//IDirect3DVertexBuffer9*bufferVertexShape;
 	int startIndex_triangle = 0;
 	int startIndex_square = 0;
 	

@@ -6,6 +6,8 @@
 #include"Entity2d.h"
 #include<iostream>
 #include"TextureManager.h"
+#include"TimeManager.h"
+
 using namespace std;
 
 
@@ -19,6 +21,7 @@ public:
 	bool StartUp(HINSTANCE hInstance);
 	
 	
+	TimeManager*timeManager;
 	TextureManager* tm;
 	void Update();
 	bool ShutDown();

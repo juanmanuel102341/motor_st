@@ -1,21 +1,24 @@
 #include"Graphics.h"
 //#include"../"
-void Graphics::Draw(CustomVertex_01* _c_vertex) {
+void Graphics::Draw(Custom_vertex* _c_vertex) {
 	//OutputDebugString(TEXT("DRAW GRAPHICS"));
-	VOID* punterosVacios;
-	HRESULT hr;
-	hr = buffer_vertex_triangle->Lock(0, 0, (VOID**)&punterosVacios, 0);
+	//VOID* punterosVacios;
+	//HRESULT hr;
+	//hr = buffer_vertex_triangle->Lock(0, 0, (VOID**)&punterosVacios, 0);
 		
-	memcpy(punterosVacios,_c_vertex->cv2, sizeof(_c_vertex->cv2));
+	//memcpy(punterosVacios,_c_vertex->cv2, sizeof(_c_vertex->cv2));
 	
-	hr=buffer_vertex_triangle->Unlock();
-	dispositivo->SetStreamSource(0, buffer_vertex_triangle, 0, sizeof(Custom_vertex));
-	dispositivo->SetFVF(D3DFVF_XYZ | D3DFVF_DIFFUSE);
-	dispositivo->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
+	//hr=buffer_vertex_triangle->Unlock();
+	//dispositivo->SetStreamSource(0, buffer_vertex_triangle, 0, sizeof(Custom_vertex));
+	//dispositivo->SetFVF(D3DFVF_XYZ | D3DFVF_DIFFUSE);
+	//dispositivo->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
 	//dispositivo->SetStreamSource(0, buffer_vertex_square, 0, sizeof(CustomVertex));
 	//dispositivo->SetFVF(D3DFVF_XYZ | D3DFVF_DIFFUSE);
 	//dispositivo->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, cantidadVertices / 2);
 	//dibujo escena
+	vertexManager->Bind();
+	vertexManager->Draw(_c_vertex, D3DPT_TRIANGLELIST, 3);
+
 }
 
 void Graphics::DrawTexture( CustomVertexSprite*_customVertexSprite) {
@@ -82,14 +85,18 @@ bool Graphics::Initialize(Ventana* _ventana) {
 	if (!InitDirect3D()) {
 		return false;
 	}
-	
+	SetupEscene();
 //	newEntity = new Entity2d();
 	//TakeVertices();
 	//if (!) {
 		//return false;
 	//}
 	SetupVertexBuffer();
-	
+	vertexManager=new VertexBufferManager<Custom_vertex, D3DFVF_CUSTOMVERTEX>();
+	vertexManager->Create(dispositivo, false);
+
+
+
 		
 	return true;
 	
@@ -164,17 +171,15 @@ bool Graphics::SetupEscene() {
 	
 	dispositivo->SetViewport(&vp);
 	//dispositivo->GetViewport(_viewport);
-	
-	D3DXMATRIX d3dmat;
-	D3DXMATRIX matTrans;
-	D3DXMatrixIdentity(&d3dmat);
-	
+	//D3DXMATRIX d3dmat;
+	//D3DXMATRIX matTrans;
 
-	D3DXMatrixTranslation(&matTrans, 0.0f, 0.0f, 0.0f);
-	D3DXMatrixMultiply(&d3dmat, &matTrans, &d3dmat);
-	dispositivo->SetTransform(D3DTS_WORLD,&d3dmat);
+	//D3DXMatrixIdentity(&d3dmat);
+	//D3DXMatrixTranslation(&matTrans, 0.0f, 0.0f, 0.0f);
+	//D3DXMatrixMultiply(&d3dmat, &matTrans, &d3dmat);
 	
-
+	
+	//dispositivo->SetTransform(D3DTS_WORLD, &d3dmat);
 	D3DXMATRIX mView;
 	D3DXVECTOR3 eyePos(0.0f, 0.0f, -5.0f);
 	D3DXVECTOR3 lookPos(0.0f, 0.0f, 0.0f);
@@ -197,6 +202,27 @@ bool Graphics::SetupEscene() {
 	 dispositivo->SetRenderState(D3DRS_LIGHTING, FALSE);
 	
 	return true;
+}
+D3DXMATRIX Graphics::LoadIdentity() {
+	D3DXMATRIX d3dmat;
+	//D3DXMATRIX matTrans;
+	D3DXMatrixIdentity(&d3dmat); 
+	dispositivo->SetTransform(D3DTS_WORLD, &d3dmat);
+	return d3dmat;
+}
+void Graphics::SetPosition(float x, float y) {
+	D3DXMATRIX d3dmat;
+	D3DXMATRIX matTrans;
+
+	d3dmat = LoadIdentity();
+	
+	D3DXMatrixTranslation(&matTrans, x, y, 0.0f);
+	D3DXMatrixMultiply(&d3dmat, &matTrans, &d3dmat);
+	dispositivo->SetTransform(D3DTS_WORLD, &d3dmat);
+
+}
+void Graphics::SetRotation(float a) {
+
 }
 void Graphics::SetPrimitivas() {
 

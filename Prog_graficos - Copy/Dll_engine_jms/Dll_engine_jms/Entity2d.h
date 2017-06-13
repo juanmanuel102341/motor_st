@@ -26,17 +26,20 @@ struct Sprites
 
 };
 //vector<CustomVertex>vectorPosicionesEntity2d(3);
-class ENGINE_API Entity2d:Entity
+class ENGINE_API Entity2d :Entity
 {
 public:
-	
-	int numVertices=0;
+	int x;
+	int y;
+	int numVertices = 0;
 	Graphics* new_graphics;
-//	Point point;
-	
+	//	Point point;
+
 	virtual void Initialize(Graphics* n_graphics);
 	virtual void Initialize(Graphics* n_graphics, LPDIRECT3DDEVICE9 dev, LPCWSTR ruta, UINT _width, UINT _height);
+	virtual void LoadEntity();
 	Entity2d();
+	virtual void SetPosition(float x, float y);
 	virtual void Draw();
 
 	void Update();

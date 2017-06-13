@@ -7,7 +7,7 @@
 //#include "Renderer.h"
 //#include <assert.h>
 
-
+#include"EngineApi.h"
 
 template <class PixelFormatClass, unsigned int FVF>
 class VertexBufferManager
@@ -22,7 +22,7 @@ public:
 	~VertexBufferManager() { if (_pVertexBuffer) _pVertexBuffer->Release(); }
 
 	// Crea un vertex buffer
-	bool Create(DX_LPDIRECT3DDEVICE pDev, bool bDynamic=true);
+	bool Create(LPDIRECT3DDEVICE9 pDev, bool bDynamic=true);
 
 	// Libera a un vertex buffer
 	void Release(void) { if (_pVertexBuffer) _pVertexBuffer->Release(); _pVertexBuffer=NULL; }
@@ -49,8 +49,8 @@ public:
 private:
 	const unsigned int	_vbSize;					// Cantidad de vértices que contiene el vertex buffer
 	const unsigned int	_flushCount;				// Cantidad de vértices entre flushes
-	DX_LPVERTEXBUFFER	_pVertexBuffer;		// Vertex Buffer encapsulado
-	DX_LPDIRECT3DDEVICE	_pDev;				// Device asociado en el método Create
+	IDirect3DVertexBuffer9*	_pVertexBuffer;		// Vertex Buffer encapsulado
+	LPDIRECT3DDEVICE9	_pDev;				// Device asociado en el método Create
 	
 	unsigned int _baseNum;						// Base del vertex buffer a lockear
 	unsigned int _vtxToLock;					// Indica la cantidad de vértices lockeados en el vb
@@ -61,7 +61,7 @@ private:
 
 // ------------------------------------------------------------------------------
 template <class PixelFormatClass, unsigned int FVF>
-bool VertexBufferManager<PixelFormatClass, FVF>::Create(DX_LPDIRECT3DDEVICE pDev, bool bDynamic)
+bool VertexBufferManager<PixelFormatClass, FVF>::Create(LPDIRECT3DDEVICE9 pDev, bool bDynamic)
 {
 	_pDev = pDev;
 #ifdef USING_DIRECTX81

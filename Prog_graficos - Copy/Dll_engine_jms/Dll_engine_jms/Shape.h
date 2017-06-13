@@ -10,12 +10,14 @@ class ENGINE_API Shape:public Entity2d
 public:
 
 	int n[3];
-	CustomVertex_01*cv;
+	Custom_vertex cv[3];
 //	CustomVertex coleccionVertices[3];
 	 Shape();
 	 Primitivas p;
 	// CustomVertex coleccionVertices_triangles[3];
 	  void Initialize(Graphics* n_graphics);
+	  virtual void LoadIdentity();
+	  virtual void SetPosition(float x, float y);
 //	~ Shape();
 	// void CreateTriangle(Point point_1, Point point_2, Point point_3);
 	 virtual void Draw();

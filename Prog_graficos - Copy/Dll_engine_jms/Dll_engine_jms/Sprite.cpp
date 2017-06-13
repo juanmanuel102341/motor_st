@@ -9,8 +9,6 @@ void Sprite::GetDevice(LPDIRECT3DDEVICE9 _dev) {
 void Sprite::Draw() {
 	tm->DrawTexture();
 
-	
-
 }
 
 
