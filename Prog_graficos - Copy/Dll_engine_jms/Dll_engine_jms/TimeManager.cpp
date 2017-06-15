@@ -3,22 +3,27 @@
 
 void TimeManager::StartCounter(){
 	LARGE_INTEGER li;
-	if (!QueryPerformanceFrequency(&li))
+	if (!QueryPerformanceFrequency(&timeFrecuency))
 	
 
 	pcfrec = double(li.QuadPart) / 1000.0;
 
-	QueryPerformanceCounter(&li);
+	QueryPerformanceCounter(&timeLastFrame);
 	counterStart = li.QuadPart;
 //	OutputDebugString(TEXT("entity2d graphics"));
 }
-double TimeManager::GetCounter() {
-	LARGE_INTEGER li;
-	QueryPerformanceCounter(&li);
-	return double(li.QuadPart - counterStart) / pcfrec;
-
+void TimeManager::NewFrame() {
+	LARGE_INTEGER thisTime;
+	QueryPerformanceCounter(&thisTime);
+	LARGE_INTEGER delta;
+	delta.QuadPart = thisTime.QuadPart - timeLastFrame.QuadPart;
+	deltaTime = ((double)delta.QuadPart) / timeFrecuency.QuadPart;
+	timeLastFrame.QuadPart = thisTime.QuadPart;
+	
 }
-
+double TimeManager::TimeLastFrame() {
+	return deltaTime;
+}
 TimeManager::TimeManager() {
 	//StartCounter();
 	Sleep(1000);

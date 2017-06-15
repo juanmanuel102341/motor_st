@@ -1,21 +1,7 @@
 #include"Graphics.h"
 //#include"../"
 void Graphics::Draw(Custom_vertex* _c_vertex) {
-	//OutputDebugString(TEXT("DRAW GRAPHICS"));
-	//VOID* punterosVacios;
-	//HRESULT hr;
-	//hr = buffer_vertex_triangle->Lock(0, 0, (VOID**)&punterosVacios, 0);
-		
-	//memcpy(punterosVacios,_c_vertex->cv2, sizeof(_c_vertex->cv2));
 	
-	//hr=buffer_vertex_triangle->Unlock();
-	//dispositivo->SetStreamSource(0, buffer_vertex_triangle, 0, sizeof(Custom_vertex));
-	//dispositivo->SetFVF(D3DFVF_XYZ | D3DFVF_DIFFUSE);
-	//dispositivo->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
-	//dispositivo->SetStreamSource(0, buffer_vertex_square, 0, sizeof(CustomVertex));
-	//dispositivo->SetFVF(D3DFVF_XYZ | D3DFVF_DIFFUSE);
-	//dispositivo->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, cantidadVertices / 2);
-	//dibujo escena
 	vertexManager->Bind();
 	vertexManager->Draw(_c_vertex, D3DPT_TRIANGLELIST, 3);
 
@@ -221,16 +207,20 @@ void Graphics::SetPosition(float x, float y) {
 	dispositivo->SetTransform(D3DTS_WORLD, &d3dmat);
 
 }
-void Graphics::SetRotation(float a) {
-
+void Graphics::SetRotation(float _angle) {
+	D3DXMATRIX matRotacion;
+//	D3DXMATRIX d3dmat;
+	D3DXMatrixRotationZ(&matRotacion, _angle);
 }
-void Graphics::SetPrimitivas() {
+void Graphics::SetScale(float _scale_x, float _scale_y) {
+	//D3DXMATRIX d3dmat;
+	D3DXMATRIX matScale;
+	
+	//d3dmat = LoadIdentity();
+	D3DXMatrixScaling(&matScale, _scale_x, _scale_y, 0.0f);
 
-
-
+	
 }
-
-
 void Graphics::CleanUp(void) {
       if (dispositivo != NULL){
 		dispositivo->Release();

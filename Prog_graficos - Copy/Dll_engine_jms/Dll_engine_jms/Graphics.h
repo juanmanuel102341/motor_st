@@ -58,7 +58,7 @@ public:
 		D3DXMATRIX LoadIdentity();
 		void SetPosition(float x, float y);
 		void SetRotation(float angle);
-	
+		void SetScale(float _scale_x, float _scale_y);
 		//void SetScale();
 		//	~Graphics();
 	
@@ -80,7 +80,7 @@ private:
 	D3DXMATRIX MatrizRotacion(float angle);
 	D3DXMATRIX MatrizScala(float x, float y);
 	HRESULT SetupVertexBuffer();
-	void SetPrimitivas();
+
 	
 	bool InitDirect3D(void);
 

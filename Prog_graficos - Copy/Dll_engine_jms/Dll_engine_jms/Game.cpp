@@ -14,7 +14,7 @@ bool Game::StartUp(HINSTANCE hInstance)
 		
 		nuevoGraphics = new Graphics;
 		timeManager = new TimeManager;
-
+		timeManager->StartCounter();
 		if (!nuevoGraphics->Initialize(nuevaVentana)) {
 		return false;
 		}
@@ -39,6 +39,7 @@ void Game::Update() {
 				done = true;			// ALT-F4
 		}
 
+		timeManager->NewFrame();
 		nuevoGraphics->Clear();
 		//nuevoGraphics->SetupEscene();
 		nuevoGraphics->Begin();

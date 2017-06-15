@@ -7,6 +7,7 @@
 class PlayState:public Game
 {
 	Shape* main_entity2d;
+	Shape* main_entity2d_2;
 	Sprite* sprite;
 public:
   PlayState();

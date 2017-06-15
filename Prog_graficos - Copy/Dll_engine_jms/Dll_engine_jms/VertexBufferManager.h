@@ -7,7 +7,7 @@
 //#include "Renderer.h"
 //#include <assert.h>
 
-#include"EngineApi.h"
+//#include"EngineApi.h"
 
 template <class PixelFormatClass, unsigned int FVF>
 class VertexBufferManager
@@ -34,6 +34,7 @@ public:
 	void Bind(void)
 	{
 #ifdef USING_DIRECTX81
+		
 		_pDev->SetVertexShader(FVF);
 		_pDev->SetStreamSource(0, _pVertexBuffer, sizeof(PixelFormatClass));
 #else
